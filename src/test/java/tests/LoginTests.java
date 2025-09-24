@@ -11,7 +11,7 @@ public class LoginTests extends BaseTest {
         LoginPage login = new LoginPage(driver);
         login.open();
         login.login("standard_user", "secret_sauce");
-        Assert.assertTrue(driver.getCurrentUrl().contains("inventory.html"), "Should navigate to inventory page"); 
+        Assert.assertTrue(driver.getCurrentUrl().contains("inventory.html"), "Should navigate to inventory page");
     }
 
     @Test

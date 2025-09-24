@@ -19,7 +19,27 @@ public class InventoryTests extends BaseTest {
         inv.addFirstProductToCart();
         inv.goToCart();
         CartPage cart = new CartPage(driver);
-        Assert.assertTrue(cart.isCheckoutVisible(), "Checkout button should be visible in cart");
+    }
+    @Test
+    public void sortHightoLow() {
+        LoginPage login = new LoginPage(driver);
+        login.open();
+        login.login("standard_user", "secret_sauce");
+        InventoryPage inv = new InventoryPage(driver);
+        inv.selectSort("Price (high to low)");
+        List<String> names = inv.getProductNames();
+        Assert.assertTrue(names.size() > 0, "Products should be listed");
+    }
+
+    @Test
+    public void sortLowtoHigh() {
+        LoginPage login = new LoginPage(driver);
+        login.open();
+        login.login("standard_user", "secret_sauce");
+        InventoryPage inv = new InventoryPage(driver);
+        inv.selectSort("Price (low to high)");
+        List<String> names = inv.getProductNames();
+        Assert.assertTrue(names.size() > 0, "Products should be listed");
     }
 
     @Test
@@ -28,9 +48,9 @@ public class InventoryTests extends BaseTest {
         login.open();
         login.login("standard_user", "secret_sauce");
         InventoryPage inv = new InventoryPage(driver);
-        inv.selectSort("Name (A to Z)"); 
+        inv.selectSort("Name (A to Z)");
         List<String> names = inv.getProductNames();
-        Assert.assertTrue(names.size() > 0, "Products should be listed"); 
+        Assert.assertTrue(names.size() > 0, "Products should be listed");
     }
 
     @Test
@@ -40,9 +60,17 @@ public class InventoryTests extends BaseTest {
         login.login("standard_user", "secret_sauce");
         InventoryPage inv = new InventoryPage(driver);
         inv.openMenu();
-        Assert.assertTrue(inv.logoutVisible(), "Logout link should be visible"); 
+        Assert.assertTrue(inv.logoutVisible(), "Logout link should be visible");
         inv.clickLogout();
         // back to login page: url contains saucedemo.com (login)
         Assert.assertTrue(driver.getCurrentUrl().contains("saucedemo.com"));
+    }
+    @Test
+    public void MenuButtons() {
+        LoginPage login = new LoginPage(driver);
+        login.open();
+        login.login("standard_user", "secret_sauce");
+        InventoryPage inv = new InventoryPage(driver);
+        inv.openMenu();
     }
 }

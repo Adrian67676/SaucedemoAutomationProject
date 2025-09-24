@@ -22,7 +22,7 @@ public class CheckoutTests extends BaseTest {
 
         CheckoutStepOnePage stepOne = new CheckoutStepOnePage(driver);
         Assert.assertTrue(stepOne.isCancelVisible(), "Cancel must be visible on step one");
-        stepOne.fillForm("Ion", "Popescu", "12345");
+        stepOne.fillForm("Johnny", "Silverhand", "35677");
         stepOne.clickContinue();
 
         CheckoutStepTwoPage stepTwo = new CheckoutStepTwoPage(driver);
