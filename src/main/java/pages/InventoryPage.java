@@ -23,6 +23,7 @@ public class InventoryPage {
     private By menuBtn = By.id("react-burger-menu-btn");
     private By logoutLink = By.id("logout_sidebar_link");
 
+
     public InventoryPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -73,4 +74,5 @@ public class InventoryPage {
     public void clickLogout() {
         wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
     }
+
 }
