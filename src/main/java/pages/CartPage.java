@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class CartPage {
     private WebDriver driver;
 
-    // Selectoare pentru primul produs și iconița coș
+
     private By firstProductAddButton = By.xpath("(//button[contains(text(),'Add to cart')])[1]");
     private By cartIcon = By.className("shopping_cart_link");
 
