@@ -62,7 +62,6 @@ public class InventoryTests extends BaseTest {
         inv.openMenu();
         Assert.assertTrue(inv.logoutVisible(), "Logout link should be visible");
         inv.clickLogout();
-        // back to login page: url contains saucedemo.com (login)
         Assert.assertTrue(driver.getCurrentUrl().contains("saucedemo.com"));
     }
     @Test
